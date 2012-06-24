@@ -8,26 +8,26 @@ public class Item{
 	private String level;	
 
 	public Item(String name, String type, String stat, String level){
-		name=name;
-		type=type;
-		stat=stat;
-		level=level;
+		this.name=name;
+		this.type=type;
+		this.stat=stat;
+		this.level=level;
 	}
 
 	public void setName(String name){
-		name=name;
+		this.name=name;
 	}
 
 	public void setType(String type){
-		type=type;
+		this.type=type;
 	}
 	
 	public void setStat(String stat){
-		stat=stat;
+		this.stat=stat;
 	}
 
 	public void setLevel(String level){
-		level=level;
+		this.level=level;
 	}
 
 	public String getName(){
@@ -46,6 +46,8 @@ public class Item{
 		return level;
 	}
 
+	public String toString(){
+		return "Item[" + name + ", " + type + ", " + stat + ", " + level + "]";
+	}
+
 }
-
-

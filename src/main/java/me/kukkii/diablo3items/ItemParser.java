@@ -16,7 +16,18 @@ public class ItemParser {
 
   public List<Item> parse(String text) {
     List<Item> items = new ArrayList<Item>();
-    //
+    int n = 0;
+    while (true) {
+      int m = text.indexOf("<td valign=\"top\" class=\"column-item\">", n);
+      if (m < 0) {
+        break;
+      }
+      m = text.indexOf("class=\"d3-color-default\">", m);
+      m = text.indexOf(">", m) + 1;
+      n = text.indexOf("<", m);
+      String name = text.substring(m,n);
+      items.add( new Item(name, "", "", "") );
+    }
     return items;
   }
 
