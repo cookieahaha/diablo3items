@@ -27,22 +27,22 @@ public class ItemParser {
       m = text.indexOf("class=\"d3-color-default\">", m);
       m = text.indexOf(">", m) + 1;
       n = text.indexOf("<", m);
-      String name = text.substring(m,n);
+      String name = text.substring(m,n).trim();
 
       m = text.indexOf("span class=\"d3-color-default\">",m);
       m = text.indexOf(">",m) + 1;
       n = text.indexOf("<",m);
-      String type = text.substring(m,n);
+      String type = text.substring(m,n).trim();
 
       m = text.indexOf("class=\"value\">",m);
       m = text.indexOf(">",m) + 1;
       n = text.indexOf("<",m);
-      String stat = text.substring(m,n);
+      String stat = text.substring(m,n).trim();
 
       m = text.indexOf("class=\"value\">",m);
       m = text.indexOf(">",m) + 1;
       n = text.indexOf("<",m);
-      String level = text.substring(m,n);
+      String level = text.substring(m,n).trim();
 
       items.add( new Item(name, type, stat, level) );
     }
