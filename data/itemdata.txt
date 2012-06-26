@@ -1,5 +1,5 @@
-http://us.battle.net/d3/en/item/helm/#page=1
-http://us.battle.net/d3/en/item/helm/#page=2
+#http://us.battle.net/d3/en/item/helm/#page=1
+#http://us.battle.net/d3/en/item/helm/#page=2
 http://us.battle.net/d3/en/item/spirit-stone/
 http://us.battle.net/d3/en/item/voodoo-mask/
 http://us.battle.net/d3/en/item/wizard-hat/
