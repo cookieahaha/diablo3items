@@ -3,6 +3,8 @@
 package me.kukkii.diablo3items;
 
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,16 +28,33 @@ public class ItemParser {
       m = text.indexOf(">", m) + 1;
       n = text.indexOf("<", m);
       String name = text.substring(m,n);
-      items.add( new Item(name, "", "", "") );
+
+      m = text.indexOf("span class=\"d3-color-default\">",m);
+      m = text.indexOf(">",m) + 1;
+      n = text.indexOf("<",m);
+      String type = text.substring(m,n);
+
+      m = text.indexOf("class=\"value\">",m);
+      m = text.indexOf(">",m) + 1;
+      n = text.indexOf("<",m);
+      String stat = text.substring(m,n);
+
+      m = text.indexOf("class=\"value\">",m);
+      m = text.indexOf(">",m) + 1;
+      n = text.indexOf("<",m);
+      String level = text.substring(m,n);
+
+      items.add( new Item(name, type, stat, level) );
     }
     return items;
   }
 
   public static void main(String[] args) throws Exception {
     String text = FileUtils.readFileToString(new File(FILENAME), "UTF-8");
+    PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out, "UTF-8"));
     for (Item item : new ItemParser().parse(text)) {
-      System.out.println(item);
+      out.println(item);
     }
-    System.out.flush();
+    out.flush();
   }
 }
