@@ -38,18 +38,20 @@ public class ItemListGetter{
     PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out, "UTF-8"));
     int i = 1;
     for(String url : getter.getUrls()){
+      out.println("URL=" + url);
       String content = getter.getContent(url);
       getter.save(content, "data/" + (i++) + ".html");
       for (Item item : ip.parse(content)) {
         out.println(item);
       }
+      out.println();
       out.flush();
     }
     out.flush();
   }
 
   public String getContent(String url) throws Exception{
-      String input = IOUtils.toString(new URL(url));
+      String input = IOUtils.toString(new URL(url), "UTF-8");
       return input;
   }
 
