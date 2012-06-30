@@ -20,11 +20,11 @@ public class ItemParser {
     List<Item> items = new ArrayList<Item>();
     int n = 0;
     while (true) {
-      int m = text.indexOf("<td valign=\"top\" class=\"column-item\">", n);
+      int m = text.indexOf("<td valign=\"top\" class=\"column-item\">", n) ;
       if (m < 0) {
         break;
       }
-      m = text.indexOf("class=\"d3-color-default\">", m);
+      m = text.indexOf("class=\"d3-color-", m);
       if (m < 0) {
         break;
       }
@@ -39,7 +39,7 @@ public class ItemParser {
       String name = text.substring(m,n).trim();
       // System.err.println("m=" + m + " n=" + n + " name=" + name);
 
-      m = text.indexOf("span class=\"d3-color-default\">",m);
+      m = text.indexOf("span class=\"d3-color-",m);
       m = text.indexOf(">",m) + 1;
       n = text.indexOf("<",m);
       String type = text.substring(m,n).trim();
